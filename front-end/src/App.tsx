@@ -1,7 +1,12 @@
-function App() {
+import { Routes } from './routes';
+import React from 'react';
+
+function App () {
   return (
-      <p>Lisboa Entregas</p>
+    <Routes />
   );
 }
 
 export default App;
+
+ 
