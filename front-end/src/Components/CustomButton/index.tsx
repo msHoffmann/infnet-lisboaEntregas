@@ -32,23 +32,24 @@ export function CustomButton ({ children, loading, to, ...otherProps }: Props) {
   
 
 const ButtonStyled = styled(Button)`
-    border-radius: 0;
+    border-radius: 100px;
     padding-left: 50px;
     padding-right: 50px;
+    background-color: #006600;
     ${props => (props.variant === 'warning' || !props.variant) && `
-        background-color: #FFFF00;
-        border-color: #FFFF00;
+        background-color: rgba(0, 102, 0, 1);
+        border-color: rgba(0, 102, 0, 1);
         &:hover{
-            background-color: #e0e09c;
-            border-color: #e0e09c;
+            background-color:rgba(9, 143, 9, 1);
+            border-color:rgba(9, 143, 9, 1);
         }
     `}
     ${props => props.variant === 'outline-primary' &&`
-        background-color: #FFFF00;
-        border-color: #FFFF00;
+        background-color: rgba(9, 143, 9, 1);
+        border-color: rgba(0, 102, 0, 1);
         &:hover{
-            background-color: #e0e09c;
-            border-color: #e0e09c;
+            background-color: rgba(9, 143, 9, 1);
+            border-color: rgba(9, 143, 9, 1);
         }
     `}
 `

@@ -6,6 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', sans-serif;
     font-family: 'Open Sans', sans-serif;
     }
+    a {
+        color: rgba(0, 51, 153, 1);
+        text-decoration: none;
+    }
 `
 // OUTRA FONTE - PODE???
 // font-family: 'Inter', sans-serif;
