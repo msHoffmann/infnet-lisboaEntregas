@@ -11,8 +11,8 @@ const store = configureStore({
 
 export default store
 
-export type RootState = ReturnType <typeof store.getState>
-// Significa:
+export type RootState = ReturnType<typeof store.getState>
+// Linha acima significa:
 // type RootState = {
 //     userData: UserState,
 //     cardData: CartState

@@ -18,7 +18,7 @@ type FormValues = {
   password: string
 }
 
-export function LoginView () {
+export function LoginView() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const formik = useFormik({
@@ -83,7 +83,7 @@ export function LoginView () {
                   Entrar
                 </CustomButton>
               </div>
-              <p className="text-center">Não possui conta?<br/><Link to='/cadastro'>Cadastrar</Link></p>
+              <p className="text-center">Não possui conta?<br /><Link to='/cadastro'>Cadastrar</Link></p>
             </Form>
           </Col>
         </Row>

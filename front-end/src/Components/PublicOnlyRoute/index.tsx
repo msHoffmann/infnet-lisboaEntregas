@@ -8,10 +8,10 @@ type Props = {
     children: JSX.Element
 }
 
-export function PublicOnlyRoute ({ children }: Props) {
+export function PublicOnlyRoute({ children }: Props) {
     const isUserLoggedIn = useSelector(selectIsUserLoggedIn)
     const isLoadingUser = useSelector(selectisLoadingUser)
-    if(isLoadingUser) {
+    if (isLoadingUser) {
         return <Loading />
     }
     if (isUserLoggedIn) {

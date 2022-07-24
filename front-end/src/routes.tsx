@@ -7,12 +7,17 @@ import { NewOrderView } from "./Views/NewOrder";
 import { PublicOnlyRoute } from "./Components/PublicOnlyRoute";
 import { LoginView } from "./Views/Login";
 import { PrivateRoute } from "./Components/PrivateRoute";
+import { HoffmannView } from "./Views/msHoffmann";
+import { NewOrderSuccessView } from "./Views/NewOrderSuccess";
+import { TermosView } from "./Views/Termos";
 
 export function Routes() {
   return (
     <RDRoutes>
       <Route path='/' element={<HomeView />} />
       <Route path='*' element={<NotFoundView />} />
+      <Route path='/msHoffmann' element={<HoffmannView />} />
+      <Route path='/termos-de-uso' element={<TermosView />} />
       <Route
         path='/cadastro'
         element={
@@ -34,6 +39,14 @@ export function Routes() {
         element={
           <PrivateRoute>
             <NewOrderView />
+          </PrivateRoute>
+        }
+      />
+       <Route
+        path='/novo-pedido/sucesso'
+        element={
+          <PrivateRoute>
+            <NewOrderSuccessView />
           </PrivateRoute>
         }
       />

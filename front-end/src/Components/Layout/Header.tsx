@@ -87,15 +87,6 @@ const NavbarStyled = styled(Navbar)`
     `} */
 `
 
-const NavLinkStyled = styled(Nav.Link)`
-@media(min-width: 992px){
-    color: #0c0000 !important;
-}
-`
-const NavBarToogleStyled = styled(Navbar.Toggle)`
-    border: none
-`
-
 const NavBarCollapseStyled = styled(Navbar.Collapse)`
 @media(max-width: 990px) {
     background-color: white;   

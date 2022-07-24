@@ -7,7 +7,7 @@ import { FormFieldView } from "../../Components/FormField";
 import * as yup from 'yup';
 import { createEstimate, NewEstimateInput } from "../../services/createEstimate";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentEstimate, selectCurrentEstimate } from "../../store/slices/EstimateSlice";
+import { clearCurrentEstimate, setCurrentEstimate, selectCurrentEstimate } from "../../store/slices/EstimateSlice";
 
 type FormValues = {
   pickupAddress: Address | null
@@ -15,19 +15,19 @@ type FormValues = {
   comments: string
 }
 
-export function EstimateForm () {
+export function EstimateForm() {
   const dispatch = useDispatch()
   const currentEstimate = useSelector(selectCurrentEstimate)
   const formik = useFormik<FormValues>({
     initialValues: {
       pickupAddress: currentEstimate?.pickupAddress || null,
       deliveryAddress: currentEstimate?.deliveryAddress || null,
-      comments: currentEstimate?.comments || '' 
+      comments: currentEstimate?.comments || ''
     },
     validationSchema: yup.object().shape({
       pickupAddress: yup.object()
         .typeError('Selecione um endereço na lista.'),
-      deliveryAddress: yup.object() 
+      deliveryAddress: yup.object()
         .typeError('Selecione um endereço na lista.'),
       comments: yup.string()
         .required('Informe as instruções.')
@@ -43,36 +43,51 @@ export function EstimateForm () {
       controlId: `input-${fieldName}`,
       error: formik.errors[fieldName],
       isInvalid: formik.touched[fieldName] && !!formik.errors[fieldName],
-      isValid: formik.touched[fieldName] && !formik.errors[fieldName]
+      isValid: formik.touched[fieldName] && !formik.errors[fieldName],
+      disabled: !!currentEstimate
     }
   }
+  const handleChangeAddress = () => {
+    dispatch(clearCurrentEstimate())
+  }
   return (
-    <Form onSubmit={formik.handleSubmit}>
-      <AutoCompleteField
-        {...getFieldProps('pickupAddress')}
-        label="Endereço de Retirada"
-        placeholder="Informe o Endereço completo"
-        onChange={(address) => formik.setFieldValue('pickupAddress', 'address')}
-      />
-      <AutoCompleteField
-        {...getFieldProps('deliveryAddress')}
-        label="Endereço de Entrega"
-        placeholder="Informe o Endereço completo"
-        onChange={(address) => formik.setFieldValue('deliveryAddress', 'address')}
-      />
-      <FormFieldView
-        {...getFieldProps('comments')}
-        label="Instruções para Estafeta"
-        placeholder="Descreva mais informações importantes sobre a sua entrega."
-        as='textarea'
-      />
-      <div className="d-grid d-md-block">
+    <>
+      <Form onSubmit={formik.handleSubmit}>
+        <AutoCompleteField
+          {...getFieldProps('pickupAddress')}
+          label="Endereço de Retirada"
+          placeholder="Informe o Endereço completo"
+          onChange={(address) => formik.setFieldValue('pickupAddress', address)}
+        />
+        <AutoCompleteField
+          {...getFieldProps('deliveryAddress')}
+          label="Endereço de Entrega"
+          placeholder="Informe o Endereço completo"
+          onChange={(address) => formik.setFieldValue('deliveryAddress', address)}
+        />
+        <FormFieldView
+          {...getFieldProps('comments')}
+          label="Instruções para Estafeta"
+          placeholder="Descreva mais informações importantes sobre a sua entrega."
+          as='textarea'
+        />
+        {!currentEstimate && (
+          <div className="d-grid d-md-block">
+            <CustomButton
+              type='submit'
+              loading={formik.isValidating || formik.isSubmitting}
+              disabled={formik.isValidating || formik.isSubmitting}
+            >Calcular Preço</CustomButton>
+          </div>
+        )}
+      </Form>
+      {currentEstimate && (
         <CustomButton
-          type='submit'
-          loading={formik.isValidating || formik.isSubmitting}
-          disabled={formik.isValidating || formik.isSubmitting}
-        >Calcular preço</CustomButton>
-      </div>
-    </Form>
+          type='button'
+          onClick={handleChangeAddress}
+          className='mb-3 mb-md-0'
+        >Alterar Endereços</CustomButton>
+      )}
+    </>
   )
 }

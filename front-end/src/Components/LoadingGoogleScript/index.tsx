@@ -7,7 +7,7 @@ type Props = {
   children: JSX.Element
 }
 
-export function LoadGoogleScript ({ children }: Props) {
+export function LoadGoogleScript({ children }: Props) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyALlCd2X12quqEOjlH2Dqj98vIMvuWVxAQ',
     libraries

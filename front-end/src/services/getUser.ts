@@ -4,10 +4,11 @@ import { User } from "../Components/entities/user";
 
 export const getUser = async (userId: string): Promise<User> => {
     const userSnapshot = await getDoc(doc(db, 'users', userId))
+    // getDoc = ferramenta de busca para retornar algo específico
     if (!userSnapshot.exists()) {
         throw new Error('User not found.')
     }
-    const {name, email, phone} = userSnapshot.data()
+    const { name, email, phone } = userSnapshot.data()
     return {
         id: userId,
         name,

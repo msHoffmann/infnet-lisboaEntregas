@@ -18,15 +18,13 @@ const slice = createSlice({
             state.currentEstimate = action.payload
         },
         clearCurrentEstimate: () => initialState
-        // Significa: clearCurrentEstimate: () => {
+        // Linha acima significa: clearCurrentEstimate: () => {
         //     state.currentEstimate = null
         // }
     }
 })
 
 export const { setCurrentEstimate, clearCurrentEstimate } = slice.actions
-
 export default slice.reducer
-
 export const selectCurrentEstimate = (state: RootState) => state.estimateData.currentEstimate
 export const selectHasCurrentEstimate = (state: RootState) => !!state.estimateData.currentEstimate

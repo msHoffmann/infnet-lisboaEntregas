@@ -11,7 +11,3 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
     }
 `
-// OUTRA FONTE - PODE???
-// font-family: 'Inter', sans-serif;
-// font-family: 'Open Sans', sans-serif;
-// font-family: 'Sonsie One', cursive;

@@ -5,7 +5,7 @@ import { CustomButton } from "../../Components/CustomButton";
 import { FormFieldView } from "../../Components/FormField";
 import { Layout } from "../../Components/Layout";
 import { PageTitle } from "../../Components/PageTitle";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as yup from 'yup';
 import { createUser } from "../../services/createUser";
 import { FirebaseError } from "firebase/app";
@@ -56,14 +56,14 @@ export function RegisterView() {
                 dispatch(updateUser(user))
                 navigate('/novo-pedido')
 
-            } catch(error) {
+            } catch (error) {
                 if (error instanceof FirebaseError && error.code === AuthErrorCodes.EMAIL_EXISTS) {
                     setFieldError('email', 'Este E-mail já está em uso.')
                     return
                 }
                 toast.error('Ocorreu um erro ao cadastrar. Tente novamente.')
             }
-            
+
         }
     })
     const getFieldProps = (fieldName: keyof FormValues) => {
@@ -121,8 +121,7 @@ export function RegisterView() {
                                 <Form.Check
                                     type="checkbox"
                                     {...getFieldProps('agree')}
-                                    label={<>Eu li e aceito os <a href='/termos-de-uso.pdf'
-                                        target='_blank'>Termos de Uso</a>.</>}
+                                    label={<>Eu li e aceito os <a href='/termos-de-uso' target='_blank'>Termos de Uso</a>.</>}
                                 />
                                 {formik.touched.agree && formik.errors.agree && (
                                     <Form.Control.Feedback type='invalid' className='d-block'>
@@ -131,10 +130,10 @@ export function RegisterView() {
                                 )}
                             </Form.Group>
                             <div className="d-grid mb-3">
-                                <CustomButton 
-                                type="submit" 
-                                loading={formik.isValidating || formik.isSubmitting}
-                                disabled={formik.isValidating || formik.isSubmitting}
+                                <CustomButton
+                                    type="submit"
+                                    loading={formik.isValidating || formik.isSubmitting}
+                                    disabled={formik.isValidating || formik.isSubmitting}
                                 >
                                     Criar Conta
                                 </CustomButton>

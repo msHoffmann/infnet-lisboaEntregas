@@ -10,17 +10,17 @@ type NewUserInput = {
   phone: string
 }
 
-  export const createUser = async ({ email, password, name, phone }: NewUserInput) : Promise<User> => {
-    const result = await createUserWithEmailAndPassword(auth, email, password)
-    await setDoc(doc(db, 'users', result.user.uid), {
-      name,
-      email,
-      phone
-    })
-    return {
-      id: result.user.uid,
-      name,
-      email,
-      phone
-    }
+export const createUser = async ({ email, password, name, phone }: NewUserInput): Promise<User> => {
+  const result = await createUserWithEmailAndPassword(auth, email, password)
+  await setDoc(doc(db, 'users', result.user.uid), {
+    name,
+    email,
+    phone
+  })
+  return {
+    id: result.user.uid,
+    name,
+    email,
+    phone
   }
+}
