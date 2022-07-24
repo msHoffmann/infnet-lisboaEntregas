@@ -1,16 +1,29 @@
-import {ImageBackground, SafeAreaView, StyleSheet, Text} from 'react-native';
+import {ImageBackground, SafeAreaView, StyleSheet} from 'react-native';
 import React from 'react';
 import bg from '../assets/img/lisboa-entregas-bg-mobile.jpg';
-// import logo from '../assets/img/lisboa.jpg';
 import Logo from '../assets/img/teste.svg';
+import {CustomText} from '../../components/CustomText';
+import {CustomButton} from '../../components/CustomButton';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../routes';
 
-export function HomeView() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+
+export function HomeView({navigation}: Props) {
+  // const navigation = useNavigation();
+  const handlePressLogin = () => {
+    navigation.navigate('Login');
+  };
   return (
     <ImageBackground source={bg} style={styles.background}>
       <SafeAreaView style={styles.view}>
         <Logo width={70} height={70} />
-        <Text style={styles.title}>Pequenas e Grandes Mudanças</Text>
-        <Text>Fazer Login</Text>
+        <CustomText style={styles.title}>
+          Pequenas e Grandes Mudanças
+        </CustomText>
+        <CustomButton variant="primary" size="md" onPress={handlePressLogin}>
+          Login
+        </CustomButton>
       </SafeAreaView>
     </ImageBackground>
   );
@@ -40,3 +53,4 @@ const styles = StyleSheet.create({
 
 // Copiado do Figma - > sintaxe do CSS precisa ir para sintaxe do React Native:
 // text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+// Todo texto tem que estar dentro do componente TEXT

@@ -1,8 +1,13 @@
 import React from 'react';
-import {HomeView} from './views/Home';
+import {NavigationContainer} from '@react-navigation/native';
+import {Routes} from './routes';
 
 export default function App() {
-  return <HomeView />;
+  return (
+    <NavigationContainer>
+      <Routes />
+    </NavigationContainer>
+  );
 }
 
 // Já incluido: display: 'flex'
