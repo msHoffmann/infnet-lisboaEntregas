@@ -41,7 +41,7 @@ export function Header({ startWhite = true }: Props) {
         <NavbarStyled fixed="top" expand="lg" bg={isWhite ? undefined : 'white'}>
             <Container>
                 <Navbar.Brand to='/' as={Link}>
-                    <ImageStyled src={Logo} alt="Lisboa Entregas" width={229} height={55} />
+                    <ImageStyled src={Logo} alt="Lisboa Entregas" width={150} height={45} />
                 </Navbar.Brand>
                 <NavbarToggleStyled aria-controls="basic-navbar-nav">
                     <FontAwesomeIcon icon={faBars} className={isWhite ? 'text-white' : 'text-dark'} size='lg' />
@@ -68,7 +68,7 @@ export function Header({ startWhite = true }: Props) {
 
 const ImageStyled = styled.img`
     @media(min-width: 992px){
-        width: 300px;
+        width: 200px;
         height: auto; 
     }
 `

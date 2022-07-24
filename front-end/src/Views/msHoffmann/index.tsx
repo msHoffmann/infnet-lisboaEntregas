@@ -28,5 +28,5 @@ const Teste = styled.div`
 const ImageStyled = styled.img`
     width: 20%;
     height: 50%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 `
