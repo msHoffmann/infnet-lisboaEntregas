@@ -1,7 +1,7 @@
 import {ImageBackground, SafeAreaView, StyleSheet} from 'react-native';
 import React from 'react';
-import bg from '../assets/img/lisboa-entregas-bg-mobile.jpg';
-import Logo from '../assets/img/teste.svg';
+import bg from '../../assets/img/lisboa-entregas-bg-mobile.jpg';
+import Logo from '../../assets/img/teste.svg';
 import {CustomText} from '../../components/CustomText';
 import {CustomButton} from '../../components/CustomButton';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
