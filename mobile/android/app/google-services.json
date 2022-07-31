@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "18986370345",
+    "project_id": "lisboa-entregas-19d6c",
+    "storage_bucket": "lisboa-entregas-19d6c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18986370345:android:b5bf98d31408f5ab7ca338",
+        "android_client_info": {
+          "package_name": "com.awesometsproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18986370345-r3hnksuoktl09ccjcvh3dac7hfoglsht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKQKOcbVI6CZkES6521q2el_4u5w6lr78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18986370345-r3hnksuoktl09ccjcvh3dac7hfoglsht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
