@@ -19,7 +19,7 @@ export function HomeView({navigation}: Props) {
       <SafeAreaView style={styles.view}>
         <Logo width={70} height={70} />
         <CustomText style={styles.title}>
-          Pequenas e Grandes Mudanças
+          Faça Login para Pequenas e Grandes Mudanças
         </CustomText>
         <CustomButton variant="primary" size="md" onPress={handlePressLogin}>
           Login
@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     textAlign: 'center',
-    color: '#060000',
+    color: '#003399',
     textShadowColor: 'rgb(246, 241, 241)',
-    textShadowOffset: {width: 4, height: 4},
+    textShadowOffset: {width: 3, height: 3},
     textShadowRadius: 2,
   },
 });

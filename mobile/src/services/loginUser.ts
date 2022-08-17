@@ -1,5 +1,5 @@
 import auth from '@react-native-firebase/auth';
-import {User} from '../entities/user';
+import {User} from '../entities/User';
 import {getUser} from './getUser';
 
 type CredentialsInput = {

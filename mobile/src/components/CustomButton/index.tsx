@@ -1,10 +1,11 @@
+import React from 'react';
+
 import {
+  ActivityIndicator,
+  StyleSheet,
   TouchableOpacity,
   TouchableOpacityProps,
-  StyleSheet,
-  ActivityIndicator,
 } from 'react-native';
-import React from 'react';
 import {CustomText} from '../CustomText';
 
 type Props = TouchableOpacityProps & {
@@ -33,8 +34,15 @@ export function CustomButton({
         disabled ? styles[`disabled${variant}`] : {},
       ]}
       disabled={disabled}
-      {...otherProps}>
-      {loading && <ActivityIndicator color="#FFF" />}
+      {...otherProps}
+      testID="btn">
+      {loading && (
+        <ActivityIndicator
+          color="#FFF"
+          style={styles.loading}
+          testID="status"
+        />
+      )}
       <CustomText style={[styles.textBase, styles[`text${size}`]]}>
         {children}
       </CustomText>
@@ -45,24 +53,23 @@ export function CustomButton({
 const styles = StyleSheet.create({
   base: {
     borderRadius: 100,
-    // flexDirection: 'row',
-    // justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   textBase: {
-    color: '#f8f4f4',
+    color: '#FFF',
   },
   primary: {
-    backgroundColor: '#003399',
+    backgroundColor: '#1117A3',
   },
   disabledprimary: {
-    backgroundColor: '#4478E1',
+    backgroundColor: '#007bff',
   },
   success: {
-    backgroundColor: '#006600',
+    backgroundColor: '#198754',
   },
   disabledsuccess: {
-    backgroundColor: '#098F09',
+    backgroundColor: '#75c687',
   },
   md: {
     paddingHorizontal: 50,
@@ -82,5 +89,8 @@ const styles = StyleSheet.create({
   },
   block: {
     width: '100%',
+  },
+  loading: {
+    marginRight: 10,
   },
 });
